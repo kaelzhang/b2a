@@ -46,3 +46,15 @@ test('_bota error', async t => {
 
   t.fail('should fail')
 })
+
+
+test('_atob error', async t => {
+  try {
+    _atob('abcde')
+  } catch (e) {
+    t.is(e.name, 'InvalidCharacterError', 'error name not match')
+    return
+  }
+
+  t.fail('should fail')
+})

@@ -3,9 +3,8 @@ import {
   error
 } from './common'
 
-// https://gist.github.com/1020396
 
-const E = error('The string to be decoded contains characters out of range')
+const E = error('The string to be decoded is not correctly encoded')
 
 export const _atob = typeof atob !== 'undefined'
   ? atob

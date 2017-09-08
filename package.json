@@ -1,6 +1,6 @@
 {
   "name": "b2a",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "btoa and atob support for node.js or old browsers, with the Unicode Problems fixed",
   "main": "lib/index.js",
   "module": "src/index.js",
