@@ -1,6 +1,6 @@
 {
   "name": "b2a",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "btoa and atob support for node.js or old browsers, with the Unicode Problems fixed",
   "main": "lib/index.js",
   "module": "src/index.js",
@@ -59,8 +59,5 @@
     "rollup": "^0.49.3",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-node-resolve": "^3.0.0"
-  },
-  "dependencies": {
-    "babel-runtime": "^6.23.0"
   }
 }
