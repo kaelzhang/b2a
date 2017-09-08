@@ -38,7 +38,8 @@ window.btoa('a')   // 'YQ==', works fine with ASCII characters
 
 
 // Oooooooops!
-// In most browsers, calling btoa() on a Unicode string will cause a Character Out Of Range exception.
+// In most browsers, calling btoa() on a Unicode string
+// will cause a Character Out Of Range exception.
 window.btoa('中文')   // throws InvalidCharacterError
 
 btoa('中文')          // '5Lit5paH'
