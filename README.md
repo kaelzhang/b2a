@@ -26,7 +26,7 @@ $ npm install b2a
 ## Usage
 
 ```js
-const {
+import {
   atob,
   btoa
 } from 'b2a'
