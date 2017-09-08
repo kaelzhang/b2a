@@ -15,7 +15,9 @@
 
 # b2a
 
-`btoa` and `atob` support for node.js or old browsers, with the [Unicode Problems](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_.22Unicode_Problem.22) fixed.
+`btoa` and `atob` (base64 encoding and decoding) support for node.js or old browsers, with the [Unicode Problems](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_.22Unicode_Problem.22) fixed.
+
+This module will try to reuse `window.atob` and `window.btoa` if possible.
 
 ## Install
 

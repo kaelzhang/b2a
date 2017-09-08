@@ -1,7 +1,7 @@
 {
   "name": "b2a",
-  "version": "1.0.4",
-  "description": "btoa and atob support for node.js or old browsers, with the Unicode Problems fixed",
+  "version": "1.0.5",
+  "description": "btoa and atob (ie base64 encoding and decoding) support for node.js or old browsers, with the Unicode Problems fixed",
   "main": "lib/index.js",
   "module": "src/index.js",
   "scripts": {
