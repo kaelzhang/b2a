@@ -15,18 +15,37 @@
 
 # b2a
 
-<!-- description -->
+`btoa` and `atob` support for node.js or old browsers, with the [Unicode Problems](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_.22Unicode_Problem.22) fixed.
 
 ## Install
 
 ```sh
-$ npm install b2a --save
+$ npm install b2a
 ```
 
 ## Usage
 
 ```js
-const b2a = require('b2a')
+const {
+  atob,
+  btoa
+} from 'b2a'
+
+btoa('a')          // 'YQ=='
+window.btoa('a')   // 'YQ==', works fine with ASCII characters
+
+
+// Oooooooops!
+// In most browsers, calling btoa() on a Unicode string will cause a Character Out Of Range exception.
+window.btoa('中文')   // throws InvalidCharacterError
+
+btoa('中文')          // '5Lit5paH'
+
+
+// Oooooooops!
+window.atob('5Lit5paH')      // 'ä¸­æ', oh no!
+
+atob('5Lit5paH')             // '中文', great!
 ```
 
 ## License
