@@ -43,7 +43,7 @@ btoa('中文')          // '5Lit5paH'
 
 
 // Oooooooops!
-window.atob('5Lit5paH')      // 'ä¸­æ', oh no!
+window.atob('5Lit5paH')      // 'ä¸­æ', oh no!
 
 atob('5Lit5paH')             // '中文', great!
 ```
