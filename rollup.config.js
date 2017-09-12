@@ -10,19 +10,7 @@ export default {
   plugins: [
     resolve(),
     babel({
-      exclude: 'node_modules/**', // only transpile our source code
-      plugins: [
-        "transform-class-properties",
-        "transform-object-rest-spread",
-        "transform-exponentiation-operator",
-        "transform-async-to-generator",
-        "syntax-trailing-function-commas",
-        "transform-inline-environment-variables", [
-          "transform-runtime", {
-            "regenerator": true
-          }
-        ]
-      ]
+      exclude: 'node_modules/**'  // only transpile our source code
     })
   ]
 }

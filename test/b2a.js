@@ -18,7 +18,8 @@ import test from 'ava'
   '1',
   'a=1&b=2',
   'a=http://abc.com',
-  '中文'
+  '中文',
+  '😆'
 
 ].forEach(string => {
 
