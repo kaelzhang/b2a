@@ -7,6 +7,7 @@ import {
 const E = error('The string to be decoded is not correctly encoded')
 
 export const _atob = typeof atob !== 'undefined'
+  /* istanbul ignore next */
   ? input => atob(input)
   : input => {
 

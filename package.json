@@ -41,10 +41,12 @@
   "ava": {
     "require": "@babel/register",
     "babel": {
-      "babelrc": true
+      "testOptions": {
+        "babelrc": true
+      }
     },
     "files": [
-      "test/*.js"
+      "test/*.test.js"
     ]
   },
   "devDependencies": {

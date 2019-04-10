@@ -1,40 +1,21 @@
 {
-  "parserOpts": {
-    // Allow returns in the module
-    "allowReturnOutsideFunction": true
-  },
-
   "env": {
-    "ava": {
-      "plugins": [
-        "transform-es2015-modules-commonjs",
-        "transform-class-properties",
-        "transform-object-rest-spread",
-        "transform-exponentiation-operator",
-        "transform-async-to-generator",
-        "syntax-trailing-function-commas",
-        "transform-inline-environment-variables", [
-          "transform-runtime", {
-            "regenerator": true
+    "rollup": {
+      "presets": [
+        [
+          "@babel/preset-env", {
+            "targets": "> 0.25%, not dead"
           }
         ]
-      ],
-      "sourceMaps": "inline"
+      ]
     },
-
-    "rollup": {
-      "plugins": [
-        "check-es2015-constants",
-        "transform-es2015-block-scoping",
-        "transform-es2015-arrow-functions",
-        "transform-class-properties",
-        "transform-object-rest-spread",
-        "transform-exponentiation-operator",
-        "transform-async-to-generator",
-        "syntax-trailing-function-commas",
-        "transform-inline-environment-variables", [
-          "transform-runtime", {
-            "regenerator": true
+    "ava": {
+      "presets": [
+        [
+          "@babel/preset-env", {
+            "targets": {
+              "node": true
+            }
           }
         ]
       ]

@@ -1,3 +1,5 @@
+import test from 'ava'
+
 import {
   btoa,
   atob
@@ -10,8 +12,6 @@ import {
 import {
   _atob
 } from '../src/atob'
-
-import test from 'ava'
 
 ;[
   'a',
