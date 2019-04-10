@@ -9,7 +9,7 @@ const E = error('The string to be encoded contains characters out of range')
 
 export const _btoa = typeof btoa !== 'undefined'
   /* istanbul ignore next */
-  ? input => { return btoa(input) }
+  ? input => btoa(input)
   : input => {
     const str = String(input)
     let output = ''
@@ -43,4 +43,4 @@ const utf8 = input => encodeURIComponent(input).replace(
 )
 
 
-export default (input) => _btoa(utf8(input))
+export default input => _btoa(utf8(input))

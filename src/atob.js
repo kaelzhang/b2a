@@ -7,7 +7,7 @@ import {
 const E = error('The string to be decoded is not correctly encoded')
 
 export const _atob = typeof atob !== 'undefined'
-  ? input => { return atob(input) }
+  ? input => atob(input)
   : input => {
 
     const str = String(input).replace(/[=]+$/, '')
