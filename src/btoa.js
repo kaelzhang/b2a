@@ -9,7 +9,7 @@ const E = error('The string to be encoded contains characters out of range')
 
 export const _btoa = typeof btoa !== 'undefined'
   /* istanbul ignore next */
-  ? btoa
+  ? input => { return btoa(input) }
   : input => {
     const str = String(input)
     let output = ''
