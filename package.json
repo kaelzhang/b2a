@@ -1,11 +1,13 @@
 {
   "name": "b2a",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "btoa and atob (ie base64 encoding and decoding) support for node.js or old browsers, with the Unicode Problems fixed",
   "main": "lib/index.js",
-  "module": "src/index.js",
+  "module": "es/index.js",
   "scripts": {
-    "build": "BABEL_ENV=rollup rollup -c",
+    "build": "npm run build:es && npm run build:rollup",
+    "build:rollup": "BABEL_ENV=rollup rollup -c",
+    "build:es": "BABEL_ENV=es babel --out-dir es src",
     "test": "BABEL_ENV=ava nyc ava --verbose --timeout=10s",
     "prepublish": "npm run build",
     "report-cov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
@@ -13,7 +15,7 @@
   },
   "files": [
     "lib/",
-    "src/"
+    "es/"
   ],
   "repository": {
     "type": "git",
@@ -50,16 +52,18 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/register": "^7.4.0",
-    "ava": "^1.4.1",
-    "codecov": "^3.3.0",
+    "@babel/cli": "^7.4.4",
+    "@babel/plugin-transform-arrow-functions": "^7.2.0",
+    "@babel/plugin-transform-block-scoping": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "ava": "^2.1.0",
+    "codecov": "^3.5.0",
     "eslint-config-ostai": "^3.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "nyc": "^13.3.0",
-    "rollup": "^1.9.0",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-node-resolve": "^4.2.1"
+    "eslint-plugin-import": "^2.17.3",
+    "nyc": "^14.1.1",
+    "rollup": "^1.16.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.0.4"
   }
 }
