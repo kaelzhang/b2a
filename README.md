@@ -15,7 +15,7 @@
 
 # b2a
 
-`btoa` and `atob` (base64 encoding and decoding) support for node.js or old browsers, with the [Unicode Problems](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_Unicode_Problem) fixed.
+`btoa` and `atob` (base64/base64url encoding and decoding) support for node.js or old browsers, with the [Unicode Problems](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_Unicode_Problem) fixed.
 
 The common problem of other libraries is that they fail to encode 16-bit strings. Since DOMStrings are 16-bit-encoded strings, in most browsers calling `window.btoa` on a Unicode string will cause a `'Character Out Of Range'` exception if a character exceeds the range of a 8-bit byte (`0x00~0xFF`).
 
@@ -65,7 +65,7 @@ btoau('μπορούμε')                 // zrzPgM6_z4HOv8-NzrzOtQ==
 atobu('zrzPgM6_z4HOv8-NzrzOtQ==') // μπορούμε
 ```
 
-### `base64url` support since 1.1.0
+## `base64url` support since 1.1.0
 
 Since `1.1.0`, `btoau` and `atobu` are introduced to encode and decode in [base64url](https://en.wikipedia.org/wiki/Base64#URL_applications) format.
 
