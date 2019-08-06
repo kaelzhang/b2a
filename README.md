@@ -17,7 +17,7 @@
 
 `btoa` and `atob` (base64 encoding and decoding) support for node.js or old browsers, with the [Unicode Problems](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_Unicode_Problem) fixed.
 
-The common problem of other libraries is that they fail to encode 16-bit strings. Since DOMStrings are 16-bit-encoded strings, in most browsers calling   `window.btoa` on a Unicode string will cause a `'Character Out Of Range'` exception if a character exceeds the range of a 8-bit byte (`0x00~0xFF`).
+The common problem of other libraries is that they fail to encode 16-bit strings. Since DOMStrings are 16-bit-encoded strings, in most browsers calling `window.btoa` on a Unicode string will cause a `'Character Out Of Range'` exception if a character exceeds the range of a 8-bit byte (`0x00~0xFF`).
 
 This module will try to reuse `window.atob` and `window.btoa` when possible.
 
@@ -31,26 +31,48 @@ $ npm install b2a
 
 ```js
 import {
+  // Encode a string in base-64
+  btoa,
+  // Decode a string in base-64
   atob,
-  btoa
+
+  // Encode a string into base64url
+  btoau,
+  // Decode a base64url-encoded string
+  atobu
 } from 'b2a'
 
-btoa('a')          // 'YQ=='
-window.btoa('a')   // 'YQ==', works fine with ASCII characters
+btoa('a')           // 'YQ=='
+window.btoa('a')    // 'YQ==', works fine with ASCII characters
 
 
 // Oooooooops!
 // In most browsers, calling btoa() on a Unicode string
 // will cause a Character Out Of Range exception.
-window.btoa('中文')   // throws InvalidCharacterError
+window.btoa('中文')  // throws InvalidCharacterError ❌
 
-btoa('中文')          // '5Lit5paH'
+btoa('中文')         // '5Lit5paH' ✅
 
 
 // Oooooooops!
-window.atob('5Lit5paH')      // 'ä¸­æ', oh no!
+window.atob('5Lit5paH')   // 'ä¸­æ', oh no! ❌
 
-atob('5Lit5paH')             // '中文', great!
+atob('5Lit5paH')          // '中文', great! ✅
+
+
+btoau('μπορούμε')                 // zrzPgM6_z4HOv8-NzrzOtQ==
+
+atobu('zrzPgM6_z4HOv8-NzrzOtQ==') // μπορούμε
+```
+
+### `base64url` support since 1.1.0
+
+Since `1.1.0`, `btoau` and `atobu` are introduced to encode and decode in [base64url](https://en.wikipedia.org/wiki/Base64#URL_applications) format.
+
+```js
+import {btoau} from 'b2a'
+
+location.href = `https://domain.com/login?return_to=${btoau(location.href)}`
 ```
 
 ## License

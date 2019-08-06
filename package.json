@@ -1,6 +1,6 @@
 {
   "name": "b2a",
-  "version": "1.0.12",
+  "version": "1.1.0",
   "description": "btoa and atob (ie base64 encoding and decoding) support for node.js or old browsers, with the Unicode Problems fixed",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -8,10 +8,14 @@
     "build": "npm run build:es && npm run build:rollup",
     "build:rollup": "BABEL_ENV=rollup rollup -c",
     "build:es": "BABEL_ENV=es babel --out-dir es src",
-    "test": "BABEL_ENV=ava nyc ava --verbose --timeout=10s",
-    "prepublish": "npm run build",
-    "report-cov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "posttest": "npm run report-cov"
+    "test:only": "BABEL_ENV=ava nyc ava --verbose --timeout=10s",
+    "test:dev": "npm run test:only && npm run report:dev",
+    "test": "npm run test:only",
+    "prepublishOnly": "npm run build",
+    "posttest": "npm run report",
+    "report": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "report:dev": "nyc report --reporter=html && npm run report:open",
+    "report:open": "open coverage/index.html"
   },
   "files": [
     "lib/",
@@ -52,18 +56,18 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
+    "@babel/cli": "^7.5.5",
     "@babel/plugin-transform-arrow-functions": "^7.2.0",
-    "@babel/plugin-transform-block-scoping": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/register": "^7.4.4",
-    "ava": "^2.1.0",
+    "@babel/plugin-transform-block-scoping": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "ava": "^2.2.0",
     "codecov": "^3.5.0",
     "eslint-config-ostai": "^3.0.0",
-    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-import": "^2.18.2",
     "nyc": "^14.1.1",
-    "rollup": "^1.16.2",
+    "rollup": "^1.19.3",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-node-resolve": "^5.0.4"
+    "rollup-plugin-node-resolve": "^5.2.0"
   }
 }

@@ -2,7 +2,9 @@ import test from 'ava'
 
 import {
   btoa,
-  atob
+  btoau,
+  atob,
+  atobu
 } from '../src'
 
 import {
@@ -39,6 +41,12 @@ import {
     t.is(buffer_decoded, string,
       'could not buffer decoded from btoa()ed string')
     t.is(atob(encoded), string, 'could not atob from btoa()ed string')
+
+    const url_encoded = btoau(string)
+    t.false(/\+/.test(url_encoded), 'should not contain +')
+    t.false(/\//.test(url_encoded), 'should not contain /')
+
+    t.is(atobu(url_encoded), string)
   })
 })
 
